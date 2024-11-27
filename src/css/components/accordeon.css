@@ -1,4 +1,6 @@
-/** Accordeon */
+
+/* Accordéon */
+
 .container {
     display: flex;
     flex-direction: column;
@@ -6,79 +8,88 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 25px;
-  }
-  
-  h1 {
+}
+
+h1 {
     margin-bottom: 20px;
-  }
-  
-  .accordeon {
+}
+
+.accordeon {
     display: flex;
     flex-direction: column;
     width: fit-content;
     gap: 10px;
-  }
-  
-  details {
+}
+
+details {
     background-color: #f2f2f2;
     border-radius: 5px;
     overflow: hidden;
     transition: all 0.5s ease;
     width: 300px;
-  }
-  
-  details[open] {
+    padding: 0 20px; 
+    max-height: 140px; 
+    min-height: 140px; 
+}
+
+details[open] {
     background-color: #e6e6e6;
-    max-height: 1000px;
-    transition: all 0.5s ease;
-  }
-  
-  summary {
+    max-height: 1000px; 
+    transition: max-height 1s ease, padding 0.5s ease; 
+}
+
+summary {
     display: flex;
     align-items: center;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
-  }
-  
-  summary::-webkit-details-marker {
+}
+
+summary::-webkit-details-marker {
     display: none;
-  }
-  
-  summary img {
+}
+
+summary img {
     width: 120px;
     height: 120px;
     object-fit: cover;
     margin-right: 20px;
     border-radius: 0;
-  }
-  
-  summary::after {
+}
+
+summary::after {
     content: "►";
     margin-left: 20px;
     font-size: 80px;
     color: #666;
     transform: rotate(0deg);
     transition: transform 0.6s ease, color 0.8s ease;
-  }
-  
-  details[open] summary::after {
+}
+
+details[open] summary::after {
     transform: rotate(90deg);
     color: #da5407;
-  }
-  
-  details[open] div {
+}
+
+details[open] div {
     padding: 20px 20px 0;
     animation: slideIn 1s ease forwards;
-  }
-  
-  @keyframes slideIn {
+}
+
+details:not([open]) div {
+    padding: 0 20px 0;
+    animation: slideOut 1s ease forwards;
+}
+
+@keyframes slideIn {
     from {
-      transform: translateY(-30px);
-      opacity: 0;
+        transform: translateY(-30px);
+        opacity: 0;
     }
     to {
-      transform: translateY(0px);
-      opacity: 1;
+        transform: translateY(0px);
+        opacity: 1;
     }
-  }
+}
+    
