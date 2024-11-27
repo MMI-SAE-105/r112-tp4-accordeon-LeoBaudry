@@ -1,33 +1,44 @@
-/**
-* Accordeon
-*/
-
-.accordeon {
+/** Accordeon */
+.container {
     display: flex;
-    width: 100%;
-    gap: 10px;
-  }
-  
-  details {
-    position: relative;
-    min-width: 200px;
-    transition: all 0.3s ease;
-  }
-  
-  details[open] {
-    flex-grow: 1;
-    display: flex;
-    gap: 20px;
-  }
-
-body {
+    flex-direction: column;
+    align-items: flex-start;
     max-width: 1000px;
     margin: 0 auto;
     padding: 25px;
   }
-   
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .accordeon {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+  }
+  
+  details {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    width: 300px;
+  }
+  
+  details[open] {
+    background-color: #e6e6e6;
+    max-height: 1000px;
+    transition: all 0.5s ease;
+  }
+  
   summary {
-    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
   }
   
   summary::-webkit-details-marker {
@@ -35,13 +46,39 @@ body {
   }
   
   summary img {
-    width: 200px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
-    display: block;
-  }
-   
-  details[open] div {
-    animation: slideIn 0.3s ease forwards;
+    margin-right: 20px;
+    border-radius: 0;
   }
   
+  summary::after {
+    content: "►";
+    margin-left: 20px;
+    font-size: 80px;
+    color: #666;
+    transform: rotate(0deg);
+    transition: transform 0.6s ease, color 0.8s ease;
+  }
+  
+  details[open] summary::after {
+    transform: rotate(90deg);
+    color: #da5407;
+  }
+  
+  details[open] div {
+    padding: 20px 20px 0;
+    animation: slideIn 1s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
