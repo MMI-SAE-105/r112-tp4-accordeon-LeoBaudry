@@ -2,24 +2,46 @@
 * Accordeon
 */
 
-
 .accordeon {
     display: flex;
-}
-
-details {
+    width: 100%;
+    gap: 10px;
+  }
+  
+  details {
     position: relative;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    overflow: hidden;
+    min-width: 200px;
     transition: all 0.3s ease;
-    cursor: pointer;
-}
+  }
+  
+  details[open] {
+    flex-grow: 1;
+    display: flex;
+    gap: 20px;
+  }
 
-details[open] {
-    background-color: #e6f7ff;
-    border-color: #007BFF;
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
-}
-
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 25px;
+  }
+   
+  summary {
+    list-style: none;
+  }
+  
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  summary img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+  }
+   
+  details[open] div {
+    animation: slideIn 0.3s ease forwards;
+  }
+  
