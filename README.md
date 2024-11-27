@@ -1,6 +1,6 @@
-- nom :
-- prénom :
-- URL Netlify :
+- nom : Baudry
+- prénom : Léo
+- URL Netlify : https://nimble-gumption-83fef5.netlify.app/
 
 # Travail
 
